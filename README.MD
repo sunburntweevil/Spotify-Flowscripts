@@ -54,8 +54,7 @@ PLAYLIST_ID = 'your-playlist-id-from-spotify-url'
 3. Copy your Client ID and Client Secret to `CONFIG.py`
 4. Set redirect URI to `http://127.0.0.1:8888/callback` in your app settings
 5. Get your playlist ID from any Spotify playlist URL
-
-## Scripts
+**⚠ WARNING: DO NOT PUSH YOUR SPOTIFY API CONFIG FILE TO GITHUB. It contains sensitive credentials that can be exploited maliciously.**
 
 ### 1. `flowscript_basic.py`
 Basic playlist reordering using simple audio feature analysis and flow optimization.
