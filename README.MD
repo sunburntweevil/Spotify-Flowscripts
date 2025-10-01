@@ -1,73 +1,121 @@
 # Spotify FlowScripts
 
-This repository contains configuration files and scripts to automate and enhance your Spotify experience.
+This repository contains Python scripts to intelligently reorder Spotify playlists using various audio analysis algorithms and flow optimization techniques.
 
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [Scripts](#scripts)
 - [Usage](#usage)
+- [Requirements](#requirements)
 
 ## Getting Started
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/spotify-flowscripts.git
-    cd spotify-flowscripts
+    git clone https://github.com/sunburntweevil/Spotify-Flowscripts.git
+    cd Spotify-Flowscripts/flowscripts
     ```
 
-2. Install dependencies (if applicable):
+2. Install Python dependencies:
     ```bash
-    npm install
+    pip install spotipy numpy requests beautifulsoup4
     ```
+
+3. Set up Spotify API credentials (see Configuration section below)
+
+## Requirements
+
+- Python 3.6+
+- spotipy
+- numpy
+- requests
+- beautifulsoup4
 
 ## Configuration
 
-The configuration file `config.json` is used to customize the behavior of the scripts. Below is an example configuration:
+The configuration is handled in `CONFIG.py`. You'll need to set up your Spotify API credentials:
 
-```json
-{
-  "spotifyApiKey": "your-spotify-api-key",
-  "defaultPlaylist": "My Favorite Songs",
-  "logLevel": "info"
-}
+```python
+# Get these from https://developer.spotify.com/
+CLIENT_ID = 'your-spotify-client-id'
+CLIENT_SECRET = 'your-spotify-client-secret'
+
+# Must match the redirect URI in your Spotify app settings
+REDIRECT_URI = 'http://127.0.0.1:8888/callback'
+
+# Get from your Spotify playlist URL: https://open.spotify.com/playlist/[PLAYLIST_ID]
+PLAYLIST_ID = 'your-playlist-id-from-spotify-url'
 ```
 
-### Fields:
-- `spotifyApiKey`: Your Spotify API key for authentication.
-- `defaultPlaylist`: The name of the playlist to use by default.
-- `logLevel`: The logging level (`info`, `debug`, `error`).
+### Setup Steps:
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/)
+2. Create a new app
+3. Copy your Client ID and Client Secret to `CONFIG.py`
+4. Set redirect URI to `http://127.0.0.1:8888/callback` in your app settings
+5. Get your playlist ID from any Spotify playlist URL
 
 ## Scripts
 
-### 1. `create-playlist.js`
-Creates a new playlist on your Spotify account.
+### 1. `flowscript_basic.py`
+Basic playlist reordering using simple audio feature analysis and flow optimization.
 
-### 2. `add-to-playlist.js`
-Adds a song to a specified playlist.
+### 2. `flowscript_enhanced.py`
+Enhanced playlist reordering with simulated advanced audio features and improved algorithms.
 
-### 3. `fetch-playlist.js`
-Fetches and displays the songs in a playlist.
+### 3. `flowscript_transitions.py`
+Ultimate playlist reordering using multi-source scraped music data for superior flow transitions.
+
+### 4. `test_auth.py`
+Test script to verify your Spotify API authentication is working correctly.
+
+### 5. `test_audio_features.py`
+Test script to verify audio feature retrieval from Spotify API.
 
 ## Usage
 
-### Example 1: Create a Playlist
-Run the `create-playlist.js` script:
+### Example 1: Test Authentication
+Before running any playlist scripts, test your authentication:
 ```bash
-node scripts/create-playlist.js "Chill Vibes"
+python test_auth.py
 ```
 
-### Example 2: Add a Song to a Playlist
-Run the `add-to-playlist.js` script:
+### Example 2: Basic Playlist Reordering
+Run the basic flow optimization:
 ```bash
-node scripts/add-to-playlist.js "Chill Vibes" "Song Name - Artist"
+python flowscript_basic.py
 ```
 
-### Example 3: Fetch Playlist Songs
-Run the `fetch-playlist.js` script:
+### Example 3: Enhanced Playlist Reordering
+Run the enhanced algorithm with simulated features:
 ```bash
-node scripts/fetch-playlist.js "Chill Vibes"
+python flowscript_enhanced.py
 ```
+
+### Example 4: Ultimate Playlist Reordering
+Run the most advanced algorithm with scraped music data:
+```bash
+python flowscript_transitions.py
+```
+
+### Example 5: Test Audio Features
+Verify audio feature retrieval is working:
+```bash
+python test_audio_features.py
+```
+
+## How It Works
+
+The scripts analyze your Spotify playlist and reorder tracks to create better "flow" by:
+- Analyzing audio features (tempo, energy, valence, danceability, etc.)
+- Calculating optimal transitions between songs
+- Minimizing jarring changes in musical characteristics
+- Creating smooth progressions throughout the playlist
+
+Each script uses increasingly sophisticated algorithms:
+- **Basic**: Simple audio feature analysis
+- **Enhanced**: Advanced simulated features and improved algorithms  
+- **Transitions**: Multi-source data scraping for ultimate optimization
 
 ## Contributing
 
